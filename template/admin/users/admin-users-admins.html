@@ -1,0 +1,29 @@
+<div class="profile-account" ng-init="handleBreadcrumbs()">
+	<div class="row">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table ng-table="tableSorting" class="table table-striped table-vmiddle" show-filter="true">
+                        <tr ng-repeat="w in $data">
+                            <td data-title="'ID'" sortable="'id'" filter="{ 'id': 'text' }">
+                                {{ w.id }}
+                            </td>
+                            <td data-title="'Name'" sortable="'name'" filter="{ 'name': 'text' }">
+                                {{ w.name }}
+                            </td>
+                            <td data-title="'Email'" sortable="'email'" filter="{ 'email': 'text' }">
+                                {{ w.email }}
+                            </td>
+                            <td data-title="'Username'" sortable="'username'" filter="{ 'username': 'text' }">
+                                {{ w.username }}
+                            </td>
+                            <td data-title="'Contact'" sortable="'contact'"  filter="{ 'contact': 'text' }">
+                                {{ w.contact }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

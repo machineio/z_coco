@@ -1,0 +1,83 @@
+<section id="main">
+    <header id="header" data-current-skin={{mactrl.currentSkin}} data-ng-include src="'template/header.html'" data-ng-controller="headerCtrl as hctrl"></header>
+    <aside id="sidebar" data-ng-include="'template/sidebar-left.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+    <section id="content">
+        <div class="container">
+            <div class="block-header">
+                <ol class="breadcrumb">
+                    <li ng-repeat="state in states" data-ui-sref-active="active">
+                        <a data-ui-sref="{{state}}" class="text-capitalize" ng-bind="state"></a>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="card" id="profile-main">
+                <div class="pm-overview c-overflow">
+                    <div class="pmo-pic">
+                        <div class="p-relative">
+                            <a href="">
+                                <img class="img-responsive" ng-src="{{user.avatar}}" alt="">
+                            </a>
+
+                            <!-- <div class="dropdown pmop-message" uib-dropdown>
+                                <button uib-dropdown-toggle class="btn bgm-white btn-float">
+                                    <i class="zmdi zmdi-comment-text-alt"></i>
+                                </button>
+
+                                <div class="dropdown-menu stop-propagate">
+                                    <textarea placeholder="Write something..."></textarea>
+
+                                    <button class="btn bgm-green btn-float"><i class="zmdi zmdi-mail-send"></i></button>
+                                </div>
+                            </div> -->
+
+                            <a href="" class="pmop-edit">
+                                <i class="zmdi zmdi-camera"></i> <span class="hidden-xs">Update Profile Picture</span>
+                            </a>
+                        </div>
+
+
+                        <div class="pmo-stat bgm-bluegray">
+                            <h4 class="m-0 c-white" ng-bind="user.name + ' ' + user.lastname"></h4>
+                        </div>
+                    </div>
+
+                    <div class="pmo-block pmo-contact hidden-xs">
+                        <h2>Contact</h2>
+
+                        <ul>
+                            <li><i class="zmdi zmdi-accounts"></i> {{ user.company }}</li>
+                            <li>
+                                <i class="zmdi zmdi-pin"></i>
+                                <address class="m-b-0">
+                                    {{ user.addressCity }}, {{ user.addressCountry }}
+                                </address>
+                            </li>
+                            <li><i class="zmdi zmdi-email"></i> {{ user.email }}</li>
+                            <li><i class="zmdi zmdi-link"></i> {{ user.link }}</li>
+                            <li><i class="zmdi zmdi-time"></i> {{ user.enterDate | date:'MM/dd/yyyy @ h:mma' }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="pmo-block pmo-items hidden-xs">
+                        <h2>Teams</h2>
+
+                        <div class="pmob-body">
+                            <div class="row">
+                                <a href="" class="col-xs-2">
+                                    <img class="img-circle" src="img/profile-pics/1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pm-body clearfix">
+                    <ul class="tab-nav tn-justified" data-ng-include="'template/profile/profile-menu.html'"></ul>
+                    <data ui-view></data>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

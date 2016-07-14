@@ -1,0 +1,30 @@
+<section id="main">
+	<header id="header" data-current-skin={{mactrl.currentSkin}} data-ng-include src="'template/header.html'" data-ng-controller="headerCtrl as hctrl"></header>
+    <aside id="sidebar" data-ng-include src="'template/sidebar-left.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+    <section id="content" class="page-view">
+    	<div class="container">
+    		<div class="block-header">
+                <ol class="breadcrumb">
+                    <li ng-repeat="state in states" data-ui-sref-active="active">
+                        <a data-ui-sref="{{state}}" class="text-capitalize" ng-bind="state"></a>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="row">
+	            <div class="col-md-12">
+	                <div class="card">
+	                    <div class="card-body">
+	                    	<ul class="tab-nav tn-justified" data-ng-include="'template/tasks/tasks-menu.html'"></ul>
+	                    	<data ui-view></data>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+    	</div>
+    </section>
+
+</section>
+
+<footer id="footer" data-ng-include src="'template/footer.html'"></footer>

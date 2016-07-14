@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="block-header">
+        <ol class="breadcrumb">
+            <li ng-repeat="state in states" data-ui-sref-active="active">
+                <a data-ui-sref="{{state}}" class="text-capitalize" ng-bind="state"></a>
+            </li>
+        </ol>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                	<ul class="tab-nav tn-justified" data-ng-include="'template/admin/orgs/admin-orgs-menu.html'"></ul>
+                	<data ui-view></data>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

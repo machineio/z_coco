@@ -1,0 +1,25 @@
+.main-menu {
+	margin: 0 !important;
+}
+
+.profile-menu {
+	padding: 20px;
+
+    .profile-info {
+	    padding-top: 2.5vh;
+		float: right;
+
+		h1,h2,h3,h4,h5,h6 {
+			color: #FFFFFF;
+		}
+    }
+
+    .profile-pic {
+		img {
+			width: 10vh !important;
+			height: 10vh !important;
+			border-radius: 100%;
+			border: #FFFFFF solid 2px;
+		}
+	}
+}

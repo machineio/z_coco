@@ -1,0 +1,184 @@
+<section id="main">
+    <header id="header" data-current-skin={{mactrl.currentSkin}} data-ng-include src="'template/header.html'" data-ng-controller="headerCtrl as hctrl"></header>
+    <aside id="sidebar" data-ng-include="'template/sidebar-left.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+    <section id="content">
+
+        <div class="container">
+            <div class="block-header">
+                <ol class="breadcrumb">
+                    <li class="active"><a href="#home">Home</a></li>
+                </ol>
+            </div>
+
+            <div class="mini-charts">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="mini-charts-item bgm-cyan">
+                            <div class="clearfix">
+                                <div class="chart stats-bar" data-sparkline-bar></div>
+                                <div class="count">
+                                    <small>Policies Written Today</small>
+                                    <h2>0</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="mini-charts-item bgm-lightgreen">
+                            <div class="clearfix">
+                                <div class="chart stats-bar-2" data-sparkline-bar></div>
+                                <div class="count">
+                                    <small>Policies This Month</small>
+                                    <h2>1000</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="mini-charts-item bgm-orange">
+                            <div class="clearfix">
+                                <div class="chart stats-line" data-sparkline-line></div>
+                                <div class="count">
+                                    <small>Commision Earned</small>
+                                    <h2>$ 1000</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-sm-6 col-md-3">
+                        <div class="mini-charts-item bgm-bluegray">
+                            <div class="clearfix">
+                                <div class="chart stats-line-2" data-sparkline-line></div>
+                                <div class="count">
+                                    <small>Support Tickets</small>
+                                    <h2>23,856</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="row">
+            <!-- MESSAGES -->
+                <div class="col-md-6">
+                    <div class="card" data-ng-controller="recentpostCtrl as rpctrl">
+                        <div class="card-header ch-alt m-b-20">
+                            <h2>Messages <small>Messages from users of the platform</small></h2>
+                            <ul class="actions">
+                                <li>
+                                    <a href="">
+                                        <i class="zmdi zmdi-refresh-alt"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="btn bgm-cyan btn-float"><i class="zmdi zmdi-plus"></i></button>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="listview">
+
+                                <a class="lv-item" href="" data-ng-repeat="w in rpctrl.rpResult.list">
+                                    <div class="media">
+                                        <div class="pull-left">
+                                            <img class="lv-img-sm" data-ng-src="img/profile-pics/{{ w.img }}" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="lv-title">{{ w.user }}</div>
+                                            <small class="lv-small">{{ w.text }}</small>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <div class="clearfix"></div>
+
+                                <a class="lv-footer" href="">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- / MESSAGES -->
+            <!-- NEWS -->
+                <div class="col-md-6">
+                    <div class="card" data-ng-controller="recentpostCtrl as rpctrl">
+                        <div class="card-header ch-alt m-b-20">
+                            <h2>News <small>Day to day news</small></h2>
+                            <ul class="actions">
+                                <li>
+                                    <a href="">
+                                        <i class="zmdi zmdi-refresh-alt"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="listview">
+
+                                <a class="lv-item" href="" data-ng-repeat="w in rpctrl.rpResult.list">
+                                    <div class="media">
+                                        <!-- <div class="pull-left">
+                                            <img class="lv-img-sm" data-ng-src="img/profile-pics/{{ w.img }}" alt="">
+                                        </div> -->
+                                        <div class="media-body">
+                                            <div class="lv-title"><h5>{{ w.text }}</h5></div>
+                                            <!-- <small class="lv-small">{{ w.text }}</small> -->
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <div class="clearfix"></div>
+
+                                <a class="lv-footer" href="">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- / NEWS -->
+            </div>
+
+            <!-- USER PANEL -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <tabset justified="true">
+                                <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+                                    <ng-include src="tab.src" scope="$scope" onload="runContent(tab.type)"></ng-include>
+                                </tab>
+                            </tabset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / USER PANEL -->
+
+            <!-- Teams & Useful Links -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Teams<small>Your listed teams</small></h2>
+                        </div>
+                        <div class="card-body"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Useful Links<small>Useful links for work</small></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Teams & Useful Links -->
+
+        </div>
+    </section>
+</section>
+
+<footer id="footer" data-ng-include="'template/footer.html'"></footer>

@@ -1,0 +1,23 @@
+@import "colors";
+@import "views/header";
+@import "views/profile";
+// #sidebar {
+// 	height: 100vh;
+// 	margin-top: -65px;
+// }
+// #main {
+//padding-top: 50px;
+// }
+
+#header {
+	background-color: $cyan;
+}
+
+body.sw-toggled .breadcrumb {
+	padding: 0 !important;
+}
+
+.file-input-title {
+	color: #959595 !important;
+	font-weight: 400;
+}

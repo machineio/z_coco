@@ -1,0 +1,104 @@
+<ul class="header-inner clearfix">
+    <li id="menu-trigger" data-target="mainmenu" data-toggle-sidebar data-model-left="mactrl.sidebarToggle.left" data-ng-class="{ 'open': mactrl.sidebarToggle.left === true }">
+        <div class="line-wrap">
+            <div class="line top"></div>
+            <div class="line center"></div>
+            <div class="line bottom"></div>  
+        </div>
+    </li>
+
+    <li class="logo hidden-xs">
+        <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)">Spartan Approach</a>
+    </li>
+
+    <li class="pull-right">
+        <ul class="top-menu">
+
+            <li id="toggle-width">
+                <div class="toggle-switch">
+                    <input id="tw-switch" type="checkbox" hidden="hidden" data-change-layout="mactrl.layoutType">
+                    <label for="tw-switch" class="ts-helper"></label>
+                </div>
+            </li>
+
+            <li id="top-search">
+                <a href="" data-ng-click="hctrl.openSearch()"><i class="tm-icon zmdi zmdi-search"></i></a>
+            </li>
+            <li class="dropdown" uib-dropdown>
+                <a uib-dropdown-toggle href="">
+                    <i class="tm-icon zmdi zmdi-notifications"></i>
+                    <i class="tmn-counts">9</i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg stop-propagate pull-right">
+                    <div class="listview" id="notifications">
+                        <div class="lv-header">
+                            Notification
+
+                            <ul class="actions">
+                                <li>
+                                    <a href="" data-ng-click="hctrl.clearNotification($event)">
+                                        <i class="zmdi zmdi-check-all"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="lv-body">
+                            <a class="lv-item" ng-href="" ng-repeat="w in hctrl.messageResult.list">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" ng-src="img/profile-pics/{{ w.img }}" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">{{ w.user }}</div>
+                                        <small class="lv-small">{{ w.text }}</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <a class="lv-footer" href="">View Previous</a>
+                    </div>
+
+                </div>
+            </li>
+            <li class="dropdown" uib-dropdown="">
+                <button type="button" class="btn bgm-red dropdown-toggle waves-effect" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                    Status
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a href="#"><i class="pull-left zmdi zmdi-power"></i> Active</a></li>
+                    <li><a href="#"><i class="pull-left zmdi zmdi-notifications-paused"></i> Lunch</a></li>
+                    <li><a href="#"><i class="pull-left zmdi zmdi-pizza"></i> Lunch</a></li>
+                </ul>
+            </li>
+            <li class="dropdown" uib-dropdown>
+                <a href="" uib-dropdown-toggle>
+                    <i class="tm-icon zmdi zmdi-more-vert"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a data-ui-sref="profile.about" data-ng-click="mactrl.sidebarStat($event)"><i class="pull-left zmdi zmdi-account"></i> View Profile</a>
+                    </li>
+                    <li>
+                        <a data-ui-sref="profile.account"><i class="pull-left zmdi zmdi-settings"></i> Settings</a>
+                    </li>
+                    <li>
+                        <a ng-click="doLogout()"><i class="pull-left zmdi zmdi-time-restore"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<!-- Top Search Content -->
+<div id="top-search-wrap">
+    <div class="tsw-inner">
+        <i id="top-search-close" class="zmdi zmdi-arrow-left" data-ng-click="hctrl.closeSearch()"></i>
+        <input type="text">
+    </div>
+</div>

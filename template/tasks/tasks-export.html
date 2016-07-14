@@ -1,0 +1,42 @@
+<div class="profile-account" ng-init="handleBreadcrumbs()">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="date-picker input-group" ng-class="{ 'is-opened': opened == true }">
+                <span class="input-group-addon"><i class="zmdi zmdi-calendar ma-icon"></i></span>
+                <div class="fg-line" ng-class="{ 'fg-toggled': opened == true }">
+                    <input ng-click="open($event, 'opened')" type="text" class="form-control" uib-datepicker-popup="{{format}}" show-weeks="false" ng-model="dtPopup" is-open="opened" min-date="minDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Starting Date" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="date-picker input-group dp-blue" ng-class="{ 'is-opened': opened2 == true }">
+                <span class="input-group-addon"><i class="zmdi zmdi-calendar ma-icon"></i></span>
+                <div class="fg-line" ng-class="{ 'fg-toggled': opened2 == true }">
+                    <input ng-click="open($event, 'opened2')" type="text" class="form-control" uib-datepicker-popup="{{format}}" show-weeks="false" ng-model="dtPopup2" is-open="opened2" min-date="minDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Ending Date" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-info btn-block">Export</button>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-sm-12 col-md-offset-1 col-md-4 text-center">
+            <h4 class="m-b-20">Starting date</h4>
+            <div class="date-picker dp-blue">
+                <uib-datepicker show-weeks="false" ng-model="dtInline" min-date="minDate" class="dp-inline"></uib-datepicker>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-md-offset-2 text-center">
+            <h4 class="m-b-20">Ending date</h4>
+            <div class="date-picker dp-red">
+                <uib-datepicker show-weeks="false" ng-model="dtInline2" min-date="minDate" class="dp-inline"></uib-datepicker>
+            </div>
+        </div>            
+    </div>
+    <div class="row">
+        <div class="col-md-12 m-t-20">
+            <button class="btn btn-info btn-block">Export</button>
+        </div>
+    </div>             -->
+</div>

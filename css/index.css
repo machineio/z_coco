@@ -1,0 +1,67 @@
+.main-menu {
+  margin: 0 !important; }
+
+.profile-menu {
+  padding: 20px; }
+  .profile-menu .profile-info {
+    padding-top: 2.5vh;
+    float: right; }
+    .profile-menu .profile-info h1, .profile-menu .profile-info h2, .profile-menu .profile-info h3, .profile-menu .profile-info h4, .profile-menu .profile-info h5, .profile-menu .profile-info h6 {
+      color: #FFFFFF; }
+  .profile-menu .profile-pic img {
+    width: 10vh !important;
+    height: 10vh !important;
+    border-radius: 100%;
+    border: #FFFFFF solid 2px; }
+
+#profile-main .pmo-pic .pmo-stat {
+  background-color: #FF9800;
+  padding: 5vh; }
+
+.profile-emails {
+  padding: 5vh;
+  margin: 5vh; }
+  .profile-emails .card .card-body {
+    padding: 5vh; }
+
+.profile-account {
+  padding: 3vh;
+  margin: 2vh; }
+  .profile-account .card .card-body {
+    padding: 5vh; }
+
+.profile-menu {
+  cursor: pointer; }
+  .profile-menu > a {
+    background: #303030 !important; }
+
+.fc-toolbar .ui-button {
+  width: 50px;
+  height: 50px; }
+
+.tab-content {
+  padding: 0; }
+
+.tab-container {
+  padding: 5vh;
+  padding-top: 0; }
+
+.profile-tab-header {
+  padding: 20px; }
+  .profile-tab-header .profile-tab-header-search input {
+    color: #303030;
+    background-color: transparent !important; }
+    .profile-tab-header .profile-tab-header-search input:focus {
+      border-color: #303030; }
+
+#header {
+  background-color: #00BCD4; }
+
+body.sw-toggled .breadcrumb {
+  padding: 0 !important; }
+
+.file-input-title {
+  color: #959595 !important;
+  font-weight: 400; }
+
+/*# sourceMappingURL=index.css.map */
