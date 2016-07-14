@@ -5,7 +5,15 @@
 
     <!-- <aside id="chat" data-ng-include src="'template/chat.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.right === true }"></aside> -->
 
-    <section id="content" class="page-view" data-ui-view></section>
+    <section id="content" class="page-view" data-ui-view>
+    	<div class="block-header">
+	        <ol class="breadcrumb">
+	            <li ng-repeat="state in states" data-ui-sref-active="active">
+	                <a data-ui-sref="{{state}}" class="text-capitalize" ng-bind="state"></a>
+	            </li>
+	        </ol>
+	    </div>
+    </section>
 
 </section>
 

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "angular-animate": "^1.4.3",
+    "chart.js": "^2.2.0-rc.1",
     "ng-if-bootstrap-grid": "^0.1.0"
   }
 }

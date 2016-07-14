@@ -11,7 +11,12 @@ materialAdmin
 
             .state ('home', {
                 url: '/home',
-                templateUrl: 'views/home.html',
+                templateUrl: 'views/common.html',
+            })
+
+            .state ('home.dashboard', {
+                url: '/dashboard',
+                templateUrl: 'template/home/home.html',
                 controller: 'homeCtrl',
                 resolve: {
                     loadPlugin: function($ocLazyLoad) {
@@ -29,7 +34,8 @@ materialAdmin
                                 files: [
                                     'vendors/sparklines/jquery.sparkline.min.js',
                                     'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
-                                    'vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js'
+                                    'vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js',
+                                    'node_modules/chart.js/dist/Chart.js'
                                 ]
                             }
                         ])
@@ -107,20 +113,20 @@ materialAdmin
 
 
         //------------------------------
-        // Tasks
+        // SMS
         //------------------------------
-            .state('tasks', {
-                url: '/tasks',
-                templateUrl: 'views/tasks.html',
-                controller: 'tasksCtrl'
+            .state('sms', {
+                url: '/sms',
+                templateUrl: 'views/common.html',
+                controller: 'smsViewCtrl'
             })
 
-            .state ('tasks.all', {
+            .state ('sms.all', {
                 url: '/all',
                 templateUrl: 'template/tasks/tasks-all.html',
             })
 
-            .state ('tasks.export', {
+            .state ('sms.export', {
                 url: '/export',
                 templateUrl: 'template/tasks/tasks-export.html',
                 resolve: {

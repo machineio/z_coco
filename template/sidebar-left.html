@@ -33,18 +33,18 @@
     <ul class="main-menu">
         
         <li data-ui-sref-active="active">
-            <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
+            <a data-ui-sref="home.dashboard" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
         </li>
         <li data-ui-sref-active="active">
-            <a data-ui-sref="phone" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-phone"></i> Phone</a>
+            <a data-ui-sref="sms" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-comment-alt-text"></i> SMS</a>
         </li>
         <li data-ui-sref-active="active">
-            <a data-ui-sref="messages" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-email"></i> Messages</a>
+            <a data-ui-sref="emails" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-email"></i> Emails</a>
         </li>
         <li data-ui-sref-active="active">
-            <a data-ui-sref="tasks.all" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-comment-alert"></i> Tasks</a>
+            <a data-ui-sref="broadcast" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-portable-wifi"></i> Broadcast</a>
         </li>
-        <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('supervisor') }">
+        <!-- <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('supervisor') }">
             <a href="" toggle-submenu><i class="zmdi zmdi-pin-account"></i> Supervisor</a>
             <ul>
                 <li><a data-ui-sref-active="active" data-ui-sref="supervisor.monitor.all" data-ng-click="mactrl.sidebarStat($event)">Monitors</a></li>
@@ -59,10 +59,10 @@
                 <li><a data-ui-sref-active="active" data-ui-sref="admin.orgs.all" data-ng-click="mactrl.sidebarStat($event)">Organizations</a></li>
                 <li><a data-ui-sref-active="active" data-ui-sref="admin.leads.all" data-ng-click="mactrl.sidebarStat($event)">Leads</a></li>
                 <li><a data-ui-sref-active="active" data-ui-sref="admin.campaigns.all" data-ng-click="mactrl.sidebarStat($event)">Campaigns</a></li>
-                <!-- <li><a data-ui-sref-active="active" data-ui-sref="charts.flot-charts" data-ng-click="mactrl.sidebarStat($event)">Flot Charts</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="charts.other-charts" data-ng-click="mactrl.sidebarStat($event)">Other Charts</a></li> -->
+                <li><a data-ui-sref-active="active" data-ui-sref="charts.flot-charts" data-ng-click="mactrl.sidebarStat($event)">Flot Charts</a></li>
+                <li><a data-ui-sref-active="active" data-ui-sref="charts.other-charts" data-ng-click="mactrl.sidebarStat($event)">Other Charts</a></li>
             </ul>
-        </li>
+        </li> -->
         <!-- <li data-ui-sref-active="active">
             <a data-ui-sref="leads.all" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-accounts"></i> Leads</a>
         </li> -->
@@ -78,7 +78,7 @@
                 <li><a data-ui-sref-active="active" data-ui-sref="charts.other-charts" data-ng-click="mactrl.sidebarStat($event)">Other Charts</a></li>
             </ul>
         </li>
-        <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('headers') }">
+        <!-- <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('headers') }">
             <a href="" toggle-submenu><i class="zmdi zmdi-view-compact"></i> Headers</a>
 
             <ul>
@@ -195,6 +195,6 @@
         </li>
         <li>
             <a href="https://wrapbootstrap.com/theme/material-admin-responsive-angularjs-WB011H985"><i class="zmdi zmdi-money"></i> Buy this template</a>
-        </li>
+        </li> -->
     </ul>
 </div>

@@ -21,3 +21,56 @@ body.sw-toggled .breadcrumb {
 	color: #959595 !important;
 	font-weight: 400;
 }
+
+.number-display {
+	background-color: $white;
+	// border: 1px solid #efefef;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    position: relative;
+    margin-bottom: 30px;
+
+    .clearfix {
+    	padding: 10px 20px 10px 20px;
+
+    	.count {
+
+    		&.green {
+    			h2{
+					color: $lightgreen !important;
+    			}
+    		}
+
+    		&.bluegray {
+    			h2{
+					color: $bluegray !important;
+    			}
+    		}
+
+    		&.red {
+    			h2{
+					color: $red !important;
+    			}
+    		}
+
+    		&.cyan {
+    			h2{
+					color: $cyan !important;
+    			}
+    		}
+
+    		h2 {
+    			font-size: 20px;
+    			margin-top: 5px;
+    			margin-bottom: 0px;
+    			font-weight: 400;
+				color: #303030;
+    		}
+
+    		small {
+    			font-size: 12px;
+    			font-weight: 400;
+    			color: #303030;
+    		}
+    	}
+    }
+}

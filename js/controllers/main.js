@@ -8,6 +8,8 @@ materialAdmin
         growlService.growl('Welcome back Mallinda!', 'inverse')
         
         
+
+
         // Detact Mobile Browser
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
            angular.element('html').addClass('ismobile');
@@ -190,6 +192,87 @@ materialAdmin
 // =========================================================================
     .controller('homeCtrl',['$scope', '$window', '$filter', '$sce', 'ngTableParams', 'tableService', function($scope, $window, $filter, $sce, ngTableParams, tableService){
         var data = tableService.data;
+
+        var ctx = document.getElementById("myChart");
+        var ctx2 = document.getElementById("myChart2");
+        
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Campaign 1", "Campaign 2", "Campaign 3"],
+                datasets: [
+                    {
+                        label: 'Outgoing',
+                        data: [100, 20000, 3000],
+                        backgroundColor: '#e6e6e6',
+                        borderColor: '#FFFFFF',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Sended',
+                        data: [23000, 2500, 5000],
+                        backgroundColor: '#8BC34A',
+                        borderColor: '#4CAF50',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Dropped',
+                        data: [500, 4, 0],
+                        backgroundColor: '#F44336',
+                        borderColor: '#FFFFFF',
+                        borderWidth: 1
+                    }
+                ],
+            },
+            options: {
+                // scales: {
+                //     yAxes: [{
+                //         ticks: {
+                //             beginAtZero: false
+                //         }
+                //     }]
+                // }
+            }
+        });
+
+        var myChart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ["Campaign 1", "Campaign 2", "Campaign 3"],
+                datasets: [
+                    {
+                        label: 'Outgoing',
+                        data: [100, 20000, 3000],
+                        backgroundColor: '#e6e6e6',
+                        borderColor: '#FFFFFF',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Sended',
+                        data: [23000, 2500, 5000],
+                        backgroundColor: '#8BC34A',
+                        borderColor: '#4CAF50',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Dropped',
+                        data: [500, 4, 0],
+                        backgroundColor: '#F44336',
+                        borderColor: '#FFFFFF',
+                        borderWidth: 1
+                    }
+                ],
+            },
+            options: {
+                // scales: {
+                //     yAxes: [{
+                //         ticks: {
+                //             beginAtZero: false
+                //         }
+                //     }]
+                // }
+            }
+        });
         $scope.onSelect = function(argStart, argEnd) {            
             var modalInstance  = $modal.open({
                 templateUrl: 'addEvent.html',
@@ -357,9 +440,9 @@ materialAdmin
 
 
 //=================================================
-// Tasks
+// SMS
 //=================================================
-    .controller('tasksCtrl', ['$scope', 'getStateBreadcrumbs', '$window', '$filter', '$sce', 'ngTableParams', 'tableService', function($scope, getStateBreadcrumbs, $window, $filter, $sce, ngTableParams, tableService){
+    .controller('smsViewCtrl', ['$scope', 'getStateBreadcrumbs', '$window', '$filter', '$sce', 'ngTableParams', 'tableService', function($scope, getStateBreadcrumbs, $window, $filter, $sce, ngTableParams, tableService){
         $scope.opened = false;
         $scope.opened2 = false;
         $scope.states = getStateBreadcrumbs.get();

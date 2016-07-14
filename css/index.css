@@ -64,4 +64,30 @@ body.sw-toggled .breadcrumb {
   color: #959595 !important;
   font-weight: 400; }
 
+.number-display {
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  position: relative;
+  margin-bottom: 30px; }
+  .number-display .clearfix {
+    padding: 10px 20px 10px 20px; }
+    .number-display .clearfix .count.green h2 {
+      color: #8BC34A !important; }
+    .number-display .clearfix .count.bluegray h2 {
+      color: #607D8B !important; }
+    .number-display .clearfix .count.red h2 {
+      color: #F44336 !important; }
+    .number-display .clearfix .count.cyan h2 {
+      color: #00BCD4 !important; }
+    .number-display .clearfix .count h2 {
+      font-size: 20px;
+      margin-top: 5px;
+      margin-bottom: 0px;
+      font-weight: 400;
+      color: #303030; }
+    .number-display .clearfix .count small {
+      font-size: 12px;
+      font-weight: 400;
+      color: #303030; }
+
 /*# sourceMappingURL=index.css.map */
