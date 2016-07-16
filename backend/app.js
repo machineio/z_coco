@@ -54,6 +54,22 @@ login.post('/', function(req,res){
 
 });
 
+login.post('/register', function(req,res){
+    login_controller.login.doRegister(req.body)
+        .then(function(response){
+            res.json(response);
+        });
+
+});
+
+login.post('/forgot', function(req,res){
+    login_controller.login.doForgotPassword(req.body)
+        .then(function(response){
+            res.json(response);
+        });
+
+});
+
 // deviceToken.get('/queue', function(req,res){
 //     controller.push.getQueue()
 //         .then(function(response){
