@@ -1,9 +1,17 @@
 materialAdmin
     .config(function ($stateProvider, $urlRouterProvider){
-        $urlRouterProvider.otherwise("/home");
+        $urlRouterProvider.otherwise("/home/dashboard");
 
 
         $stateProvider
+        //------------------------------
+        // LOGIN
+        //------------------------------ 
+            .state ('login', {
+                url: '/login',
+                templateUrl: 'modules/login/template/login.html',
+                controller: 'loginCtrl',
+            })
         
         //------------------------------
         // HOME

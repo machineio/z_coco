@@ -1,0 +1,107 @@
+[
+	{
+		"title": "Configuration for the HOME module",
+		"folders": [
+			{
+				"title": "img",
+				"description": "Folder for images (IMG)",
+				"files": []
+			},
+			{
+				"title": "js",
+				"description": "Al module logic (JS)",
+				"files": [
+					"controller.js",
+					"directive.js",
+					"service.js",
+					"factory.js"
+				]
+			},
+			{
+				"title": "sass",
+				"description": "Al sass or css files of the module (CSS)",
+				"files": [
+					"_login.scss"
+				]	
+			},
+			{
+				"title": "template",
+				"description": "Al templates and views of the module (HTML)",
+				"files": [
+					"login.html"
+				]	
+			}
+		],
+		"import": [
+			{
+				"title":"SASS",
+				"file": "sass/index.scss",
+				"code": "
+					// Login
+					@import '../modules/home/sass/home';
+				"
+			},
+			{
+				"title":"JS",
+				"file": "index.html",
+				"code": "
+					<!-- LOGIN MODULE -->
+			        <script src='modules/home/js/controller.js'></script>
+			        <script src='modules/home/js/directive.js'></script>
+			        <script src='modules/home/js/service.js'></script>
+			        <script src='modules/home/js/factory.js'></script>	
+				"
+			},
+			{
+				"title":"Angular Router Import",
+				"file": "js/config.js",
+				"code": "
+					.state ('home', {
+		                url: '/home',
+		                templateUrl: 'modules/home/template/common.html',
+		            })
+				"
+			}
+		],
+		"modules": [
+			{
+				"title": "Dashboard",
+				"import": {
+					"title":"Angular Router Import",
+					"note": "Insert after home config import",
+					"file": "config.js",
+					"text": "
+						.state ('home.dashboard', {
+			                url: '/dashboard',
+			                templateUrl: 'template/home/home.html',
+			                controller: 'homeCtrl',
+			                resolve: {
+			                    loadPlugin: function($ocLazyLoad) {
+			                        return $ocLazyLoad.load ([
+			                            {
+			                                name: 'css',
+			                                insertBefore: '#app-level',
+			                                files: [
+			                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css',
+			                                ]
+			                            },
+			                            {
+			                                name: 'vendors',
+			                                insertBefore: '#app-level-js',
+			                                files: [
+			                                    'vendors/sparklines/jquery.sparkline.min.js',
+			                                    'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
+			                                    'vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js',
+			                                    'node_modules/chart.js/dist/Chart.js'
+			                                ]
+			                            }
+			                        ])
+			                    }
+			                }
+			            })
+					"
+				}
+			}
+		]
+	}
+]

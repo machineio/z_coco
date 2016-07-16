@@ -54,6 +54,19 @@
     .profile-tab-header .profile-tab-header-search input:focus {
       border-color: #303030; }
 
+.login-content {
+  height: 100vh !important;
+  padding-top: 10vh;
+  background: url("../modules/login/img/landing.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.login-logo-head .col-md-12 {
+  text-align: center; }
+  .login-logo-head .col-md-12 img {
+    max-width: 80vw;
+    height: auto; }
+
 #header {
   background-color: #00BCD4; }
 

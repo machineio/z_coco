@@ -1,6 +1,14 @@
 @import "colors";
 @import "views/header";
 @import "views/profile";
+
+// Home
+@import '../modules/home/sass/home';
+
+// Login
+@import "../modules/login/sass/login";
+
+
 // #sidebar {
 // 	height: 100vh;
 // 	margin-top: -65px;

@@ -1,0 +1,19 @@
+.login-content {
+	height: 100vh !important;
+	padding-top: 10vh;
+	background: url('../modules/login/img/landing.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.login-logo-head {
+	
+	.col-md-12 {
+		text-align: center;
+
+		img {
+			max-width: 80vw;
+			height: auto;
+		}
+	}
+}
