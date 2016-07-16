@@ -1,0 +1,28 @@
+{
+  "name": "coco_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/machineio/coco/backEnd"
+  },
+  "keywords": [
+    "coco",
+    "codemachine"
+  ],
+  "author": "Alex Ramirez",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "express": "^4.14.0",
+    "icg-json-to-xlsx": "^0.2.5",
+    "mime": "^1.3.4",
+    "mongodb": "^2.2.2",
+    "node-uuid": "^1.4.7",
+    "xlsx": "^0.8.0"
+  }
+}
