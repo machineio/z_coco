@@ -1,7 +1,7 @@
 exports.app = function(){
 	return {
 		http_server:{
-			port:8080,
+			port:9090,
 			host:'0.0.0.0'
 		},
 		db_server:{
