@@ -1,0 +1,177 @@
+<div class="container">
+    <div class="block-header">
+        <ol class="breadcrumb">
+            <li class="active"><a ui-sref="home.dashboard">Home</a></li>
+        </ol>
+    </div>
+
+
+    <div class="row">
+    <!-- Emails -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header ch-alt m-b-20">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-6">
+                            <h2>Email campaigns <small>Last 30 days</small></h2>        
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="btn-group pull-right" uib-dropdown>
+                                <button type="button bgm-cyan" class="btn btn-default dropdown-toggle" uib-dropdown-toggle>
+                                    All Campaigns
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <li><a href="#">Campaign 1</a></li>
+                                    <li><a href="#">Campaign 2</a></li>
+                                    <li><a href="#">Campaign 3</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body p-20">
+                    <div class="mini-charts">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="number-display">
+                                    <div class="clearfix">
+                                        <div class="count bluegray">
+                                            <h2>230000</h2>
+                                            <small>Outgoing messages</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3">
+                                <div class="number-display">
+                                    <div class="clearfix">
+                                        <div class="count green">
+                                            <h2>72.07%</h2>
+                                            <small>Delivered</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3">
+                                <div class="number-display">
+                                    <div class="clearfix">
+                                        <div class="count red">
+                                            <h2>27.93%</h2>
+                                            <small>Dropped</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3">
+                                <div class="number-display">
+                                    <div class="clearfix">
+                                        <div class="count cyan">
+                                            <h2>200</h2>
+                                            <small>Incoming messages</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <canvas ng-init="drawChart1()" id="myChart" width="auto" height="75%"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    <!-- SMS -->
+        <!-- <div class="col-md-12">
+            <div class="card">
+                <div class="card-header ch-alt m-b-20">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-6">
+                            <h2>SMS campaigns <small>Last 30 days</small></h2>        
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="btn-group pull-right" uib-dropdown>
+                                <button type="button bgm-cyan" class="btn btn-default dropdown-toggle" uib-dropdown-toggle>
+                                    All Campaigns
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <li><a href="#">Campaign 1</a></li>
+                                    <li><a href="#">Campaign 2</a></li>
+                                    <li><a href="#">Campaign 3</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body p-20">
+                    <div class="mini-charts">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="number-display">
+                                    <div class="clearfix">
+                                        <div class="count bluegray">
+                                            <h2>230000</h2>
+                                            <small>Outgoing sms</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3">
+                                <div class="number-display">
+                                    <div class="clearfix">
+                                        <div class="count green">
+                                            <h2>72.07%</h2>
+                                            <small>Delivered</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3">
+                                <div class="number-display">
+                                    <div class="clearfix">
+                                        <div class="count red">
+                                            <h2>27.93%</h2>
+                                            <small>Dropped</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3">
+                                <div class="number-display">
+                                    <div class="clearfix">
+                                        <div class="count cyan">
+                                            <h2>200</h2>
+                                            <small>Incoming sms</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <canvas ng-init="drawChart2()" id="myChart2" width="auto" height="75%"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>

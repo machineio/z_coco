@@ -19,12 +19,13 @@ materialAdmin
 
             .state ('home', {
                 url: '/home',
-                templateUrl: 'views/common.html',
+                templateUrl: 'modules/general/template/common.html',
+                controller: 'homeCtrl',
             })
 
             .state ('home.dashboard', {
                 url: '/dashboard',
-                templateUrl: 'template/home/home.html',
+                templateUrl: 'modules/home/template/dashboard.html',
                 controller: 'homeCtrl',
                 resolve: {
                     loadPlugin: function($ocLazyLoad) {

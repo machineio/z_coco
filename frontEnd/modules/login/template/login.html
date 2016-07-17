@@ -11,14 +11,14 @@
         <div class="input-group m-b-20">
             <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
             <div class="fg-line">
-                <input type="text" class="form-control" placeholder="Username">
+                <input type="email" class="form-control" placeholder="Email" ng-model="models.login.email">
             </div>
         </div>
 
         <div class="input-group m-b-20">
             <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
             <div class="fg-line">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" ng-model="models.login.password">
             </div>
         </div>
 
@@ -26,13 +26,13 @@
 
         <div class="checkbox">
             <label>
-                <input type="checkbox" value="">
+                <input type="checkbox" value="" ng-model="models.login.keep_me_sign_in">
                 <i class="input-helper"></i>
                 Keep me signed in
             </label>
         </div>
 
-        <a href="" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+        <a href="" class="btn btn-login btn-danger btn-float" ng-click="submitLogin()"><i class="zmdi zmdi-arrow-forward"></i></a>
 
         <ul class="login-navigation">
             <li data-block="#l-register" class="bgm-red" data-ng-click="viewStatus.login = 0; viewStatus.register = 1">Register</li>
