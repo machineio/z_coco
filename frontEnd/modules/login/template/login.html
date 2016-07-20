@@ -43,21 +43,21 @@
 <!-- Register -->
     <div class="lc-block" id="l-register" data-ng-class="{ 'toggled': viewStatus.register === 1 }" data-ng-if="viewStatus.register === 1">
 
-        <div class="input-group m-b-20">
+        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.email === true }">
             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
             <div class="fg-line">
                 <input type="text" class="form-control" placeholder="Email Address" ng-model="models.login.email">
             </div>
         </div>
 
-        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.status === true }">
+        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.password === true }">
             <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
             <div class="fg-line">
                 <input type="password" class="form-control" placeholder="Password" ng-model="models.login.password">
             </div>
         </div>
 
-        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.status === true }">
+        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.passwordConfirm === true }">
             <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
             <div class="fg-line">
                 <input type="password" class="form-control" placeholder="Confirm Password" ng-model="models.login.confirmPassword">
@@ -90,16 +90,28 @@
 
 <!-- Forgot Password -->
     <div class="lc-block" id="l-forget-password" data-ng-class="{ 'toggled': viewStatus.forgot === 1 }" data-ng-if="viewStatus.forgot === 1">
-        <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>
+        <p class="text-left">Please enter your email address in order to sent you the link to reset your password</p>
 
-        <div class="input-group m-b-20">
+        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.email === true }">
             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
             <div class="fg-line">
-                <input type="text" class="form-control" placeholder="Email Address">
+                <input type="text" class="form-control" placeholder="Email Address" ng-model="models.login.email">
             </div>
         </div>
 
-        <a href="" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+        <div class="row" ng-if="showWarning.forgotSuccess">
+            <div class="col-md-12 text-center">
+                <h6 class="login_bad_input_header_success" ng-bind="showWarning.text"></h6>
+            </div>
+        </div>
+
+        <div class="row" ng-if="showWarning.status">
+            <div class="col-md-12 text-center">
+                <h6 class="login_bad_input_header" ng-bind="showWarning.text"></h6>
+            </div>
+        </div>
+
+        <a href="" class="btn btn-login btn-danger btn-float" ng-click="doForgotPassword()"><i class="zmdi zmdi-arrow-forward"></i></a>
 
         <ul class="login-navigation">
             <li data-block="#l-login" class="bgm-green" data-ng-click="viewStatus.forgot = 0; viewStatus.login = 1">Login</li>
