@@ -58,7 +58,7 @@ materialAdmin
         //------------------------------
             .state ('profile', {
                 url: '/profile',
-                templateUrl: 'views/profile.html',
+                templateUrl: 'modules/profileAndSettings/template/profile.html',
                 controller: 'profileCtrl',
             })
 
