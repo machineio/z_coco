@@ -42,24 +42,31 @@
 
 <!-- Register -->
     <div class="lc-block" id="l-register" data-ng-class="{ 'toggled': viewStatus.register === 1 }" data-ng-if="viewStatus.register === 1">
-        <div class="input-group m-b-20">
-            <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-            <div class="fg-line">
-                <input type="text" class="form-control" placeholder="Username">   
-            </div>
-        </div>
 
         <div class="input-group m-b-20">
             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
             <div class="fg-line">
-                <input type="text" class="form-control" placeholder="Email Address">
+                <input type="text" class="form-control" placeholder="Email Address" ng-model="models.login.email">
             </div>
         </div>
 
-        <div class="input-group m-b-20">
+        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.status === true }">
             <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
             <div class="fg-line">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" ng-model="models.login.password">
+            </div>
+        </div>
+
+        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.status === true }">
+            <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+            <div class="fg-line">
+                <input type="password" class="form-control" placeholder="Confirm Password" ng-model="models.login.confirmPassword">
+            </div>
+        </div>
+
+        <div class="row" ng-if="showWarning.status">
+            <div class="col-md-12 text-center">
+                <h6 class="login_bad_input_header" ng-bind="showWarning.text"></h6>
             </div>
         </div>
 
@@ -67,13 +74,13 @@
 
         <div class="checkbox">
             <label>
-                <input type="checkbox" value="">
+                <input type="checkbox" value="" ng-model="models.login.accept_license_aggrement">
                 <i class="input-helper"></i>
-                Accept the license agreement
+                Accept the <a target="_blank" href="modules/login/legal/license.pdf">license agreement</a>
             </label>
         </div>
 
-        <a href="" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+        <a href="" class="btn btn-login btn-danger btn-float" ng-click="doSignUp()"><i class="zmdi zmdi-arrow-forward"></i></a>
 
         <ul class="login-navigation">
             <li data-block="#l-login" class="bgm-green" data-ng-click="viewStatus.register = 0; viewStatus.login = 1">Login</li>

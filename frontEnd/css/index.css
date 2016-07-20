@@ -54,6 +54,32 @@
     .profile-tab-header .profile-tab-header-search input:focus {
       border-color: #303030; }
 
+.login_bad_input_header {
+  color: red !important;
+  margin-bottom: 30px; }
+
+.login_bad_input * {
+  color: red !important; }
+.login_bad_input input {
+  border-color: red !important; }
+.login_bad_input ::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: red !important; }
+.login_bad_input :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: red !important;
+  opacity: 1; }
+.login_bad_input ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: red !important;
+  opacity: 1; }
+.login_bad_input :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: red !important; }
+
+.license {
+  margin-left: 5vw; }
+
 .login-content {
   height: 100vh !important;
   padding-top: 10vh;

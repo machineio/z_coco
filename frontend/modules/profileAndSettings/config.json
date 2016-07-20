@@ -53,11 +53,72 @@
 			{
 				"title":"Angular Router Import (config.js)",
 				"text": "
-					.state ('profile', {
-		                url: '/profile',
-		                templateUrl: 'modules/profileAndSettings/template/profile.html',
-		                controller: 'profileCtrl',
-		            })
+					//------------------------------
+			        // PROFILE
+			        //------------------------------
+			            .state ('profile', {
+			                url: '/profile',
+			                templateUrl: 'modules/profileAndSettings/template/profile.html',
+			                controller: 'profileCtrl',
+			            })
+
+			            .state ('profile.about', {
+			                url: '/about',
+			                templateUrl: 'template/profile/profile-about.html'
+			            })
+			        
+			            .state ('profile.account', {
+			                url: '/account',
+			                templateUrl: 'template/profile/profile-account.html',
+			                resolve: {
+			                    loadPlugin: function($ocLazyLoad) {
+			                        return $ocLazyLoad.load ([
+			                            {
+			                                name: 'css',
+			                                insertBefore: '#app-level',
+			                                files: [
+			                                    'vendors/bower_components/lightgallery/light-gallery/css/lightGallery.css'
+			                                ]
+			                            },
+			                            {
+			                                name: 'vendors',
+			                                files: [
+			                                    'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js'
+			                                ]
+			                            }
+			                        ])
+			                    }
+			                }
+			            })
+
+			            .state ('profile.emails', {
+			                url: '/emails',
+			                templateUrl: 'template/profile/profile-emails.html',
+			                resolve: {
+			                    loadPlugin: function($ocLazyLoad) {
+			                        return $ocLazyLoad.load ([
+			                            {
+			                                name: 'css',
+			                                insertBefore: '#app-level',
+			                                files: [
+			                                    'vendors/bower_components/lightgallery/light-gallery/css/lightGallery.css'
+			                                ]
+			                            },
+			                            {
+			                                name: 'vendors',
+			                                files: [
+			                                    'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js'
+			                                ]
+			                            }
+			                        ])
+			                    }
+			                }
+			            })
+			        
+			            .state ('profile.orgs', {
+			                url: '/orgs',
+			                templateUrl: 'template/profile/profile-orgs.html'
+			            })
 				"
 			}
 		]

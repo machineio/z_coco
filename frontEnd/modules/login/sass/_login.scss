@@ -1,3 +1,33 @@
+.login_bad_input_header {
+	color: red !important;
+	margin-bottom: 30px;
+}
+
+.login_bad_input {
+	* {
+		color: red !important;
+	}
+
+	::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	    color: red !important;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	   color: red !important;
+	   opacity:  1;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+	   color: red !important;
+	   opacity:  1;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	   color: red !important
+	}
+}
+
+.license {
+	margin-left: 5vw;
+}
+
 .login-content {
 	height: 100vh !important;
 	padding-top: 10vh;

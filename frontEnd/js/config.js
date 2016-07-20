@@ -64,12 +64,12 @@ materialAdmin
 
             .state ('profile.about', {
                 url: '/about',
-                templateUrl: 'template/profile/profile-about.html'
+                templateUrl: 'modules/profileAndSettings/template/profile-about.html'
             })
         
             .state ('profile.account', {
                 url: '/account',
-                templateUrl: 'template/profile/profile-account.html',
+                templateUrl: 'modules/profileAndSettings/template/profile-account.html',
                 resolve: {
                     loadPlugin: function($ocLazyLoad) {
                         return $ocLazyLoad.load ([
@@ -93,7 +93,7 @@ materialAdmin
 
             .state ('profile.emails', {
                 url: '/emails',
-                templateUrl: 'template/profile/profile-emails.html',
+                templateUrl: 'modules/profileAndSettings/template/profile-emails.html',
                 resolve: {
                     loadPlugin: function($ocLazyLoad) {
                         return $ocLazyLoad.load ([
@@ -117,7 +117,7 @@ materialAdmin
         
             .state ('profile.orgs', {
                 url: '/orgs',
-                templateUrl: 'template/profile/profile-orgs.html'
+                templateUrl: 'modules/profileAndSettings/template/profile-orgs.html'
             })
 
 
