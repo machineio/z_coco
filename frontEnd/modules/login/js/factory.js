@@ -3,7 +3,7 @@ materialAdmin
 		return {
 			doLogin: function(sendData){
 				return new Promise(function(resolve,reject){
-					var url = "http://localhost:9090/login";
+					var url = "http://localhost:9090/users/login";
 					$http({
 						method:'POST',
 						url:url,
@@ -27,7 +27,7 @@ materialAdmin
 			},
 			doSignup: function(sendData){
 				return new Promise(function(resolve,reject){
-					var url = "http://localhost:9090/register";
+					var url = "http://localhost:9090/users/register";
 					$http({
 						method:'POST',
 						url:url,
@@ -40,11 +40,12 @@ materialAdmin
 							resolve(data.data);
 						} else {
 							console.log('SOMETHING ELSE',data);
+							reject(data);
 						}
 					}).
 					error(function(data,status,headers,config){
-						// alert('Error al Activar su codigo, favor intentarlo nuevamente');
 						console.log(data,status,headers,config);
+						reject(data);
 					});
 				});
 			},

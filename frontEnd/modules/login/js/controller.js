@@ -155,6 +155,10 @@ materialAdmin
 					.then(function(successData){
 						localStorage.setItem('login','true');
 						$state.go('home.dashboard');
+					})
+					.catch(function(err){
+						$scope.showWarning.status = true;
+			    		$scope.showWarning.text = err.data;
 					});
 	    	}
 	    };

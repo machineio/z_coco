@@ -81,17 +81,18 @@ exports.login = function(){
             return new Promise(function(resolve,reject){
                 connectDB(false)
                     .then(function(db){
+                        var apikey = uuid.v4();
                         var users = db.collection('users');
                         users.insert({
-                            "first_name" : "",
+                            "first_name" : "New",
                             "second_name" : "",
-                            "last_name" : "",
+                            "last_name" : "User",
                             "last_name_2" : "",
                             "email" : email,
                             "password" : password,
                             "website" : "",
                             "phones" : [],
-                            "system_apikey" : new uuid.v4(),
+                            "system_apikey" : apikey,
                             "mailgun_conf" : {"apikeys" : []},
                             "keep_me_sign_in" : false,
                             "accept_license_aggrement" : accept_license_aggrement
@@ -99,7 +100,7 @@ exports.login = function(){
                             if(err){
                                 reject(err);
                             } else {
-                                resolve(insertData);
+                                resolve(insertData.ops[0]);
                             }
                         });
                     })

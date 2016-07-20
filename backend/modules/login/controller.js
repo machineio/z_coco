@@ -46,19 +46,38 @@ exports.login = function(){
 			});
 		},
 		doRegister: function(data){
-			db.login.checkUserExists(data.email)
-				.then(function(){
-					db.login.doRegister(data)
-						.then(function(userData){
-							console.log('USERDATA!!!',userData);
-						})
-						.catch(function(err){
-
-						});
-				})
-				.catch(function(err){
-
-				});
+			return new Promise(function(resolve){
+				db.login.checkUserExists(data.email)
+					.then(function(){
+						db.login.doRegister(data.email,data.password,data.accept_license_aggrement)
+							.then(function(userData){
+								delete userData.password;
+								delete userData._id;
+								var response = {
+									status: true,
+									message: 'ok',
+									data: userData
+								}
+								resolve(response);
+							})
+							.catch(function(err){
+								var response = {
+									status: false,
+									message: 'There is something wrong',
+									data: err
+								}
+								resolve(response);
+							});
+					})
+					.catch(function(err){
+						var response = {
+							status: false,
+							message: 'Email error',
+							data: err
+						}
+						resolve(response);
+					});
+			});
 		},
 	}
 }();

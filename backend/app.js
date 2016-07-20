@@ -28,17 +28,17 @@ var server 	= config.app.http_server.host;		// set server
 
 // ROUTES FOR API
 // =============================================================================
-var login = express.Router();
+var users = express.Router();
 
 
 // REGISTER OUR ROUTES
 // =============================================================================
-app.use(router.loginModule.login, login);
+app.use('/users', users);
 
 
 // middleware to use for all requests
 // =============================================================================
-login.use(function(req, res, next) {
+users.use(function(req, res, next) {
     console.log(JSON.stringify({ date:new Date(), route:'Login', method:req.method, url:req.url }));
     next();
 });
@@ -46,7 +46,7 @@ login.use(function(req, res, next) {
 
 // Define the methods
 // =============================================================================
-login.post('/', function(req,res){
+users.post('/login', function(req,res){
     login_controller.login.doLogin(req.body)
         .then(function(response){
             res.json(response);
@@ -54,7 +54,7 @@ login.post('/', function(req,res){
 
 });
 
-login.post('/register', function(req,res){
+users.post('/register', function(req,res){
     login_controller.login.doRegister(req.body)
         .then(function(response){
             res.json(response);
@@ -62,7 +62,7 @@ login.post('/register', function(req,res){
 
 });
 
-login.post('/forgotPassword', function(req,res){
+users.post('/forgotPassword', function(req,res){
     login_controller.login.doForgotPassword(req.body)
         .then(function(response){
             res.json(response);
