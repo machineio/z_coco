@@ -8,17 +8,23 @@
 
 <!-- Login -->
     <div class="lc-block" id="l-login" data-ng-class="{ 'toggled': viewStatus.login === 1 }" data-ng-if="viewStatus.login === 1">
-        <div class="input-group m-b-20">
+        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.email === true }">
             <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
             <div class="fg-line">
                 <input type="email" class="form-control" placeholder="Email" ng-model="models.login.email">
             </div>
         </div>
 
-        <div class="input-group m-b-20">
+        <div class="input-group m-b-20" ng-class="{ 'login_bad_input': showWarning.password === true }">
             <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
             <div class="fg-line">
                 <input type="password" class="form-control" placeholder="Password" ng-model="models.login.password">
+            </div>
+        </div>
+
+        <div class="row" ng-if="showWarning.status">
+            <div class="col-md-12 text-center">
+                <h6 class="login_bad_input_header" ng-bind="showWarning.text"></h6>
             </div>
         </div>
 

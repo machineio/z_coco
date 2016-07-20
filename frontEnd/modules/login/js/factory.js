@@ -16,6 +16,7 @@ materialAdmin
 							resolve(data.data);
 						} else {
 							console.log('SOMETHING ELSE',data);
+							reject(data);
 						}
 					}).
 					error(function(data,status,headers,config){

@@ -62,7 +62,7 @@ login.post('/register', function(req,res){
 
 });
 
-login.post('/forgot', function(req,res){
+login.post('/forgotPassword', function(req,res){
     login_controller.login.doForgotPassword(req.body)
         .then(function(response){
             res.json(response);

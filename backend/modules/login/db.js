@@ -77,6 +77,61 @@ exports.login = function(){
                     });
             });
         },
+        doRegister: function(email,password,accept_license_aggrement){
+            return new Promise(function(resolve,reject){
+                connectDB(false)
+                    .then(function(db){
+                        var users = db.collection('users');
+                        users.insert({
+                            "first_name" : "",
+                            "second_name" : "",
+                            "last_name" : "",
+                            "last_name_2" : "",
+                            "email" : email,
+                            "password" : password,
+                            "website" : "",
+                            "phones" : [],
+                            "system_apikey" : new uuid.v4(),
+                            "mailgun_conf" : {"apikeys" : []},
+                            "keep_me_sign_in" : false,
+                            "accept_license_aggrement" : accept_license_aggrement
+                        }, function(err,insertData){
+                            if(err){
+                                reject(err);
+                            } else {
+                                resolve(insertData);
+                            }
+                        });
+                    })
+                    .catch(function(err){
+                        console.log(err);
+                        reject(err);
+                    });
+            });
+        },
+        checkUserExists: function(email){
+            return new Promise(function(resolve,reject){
+                connectDB(false)
+                    .then(function(db){
+                        var users = db.collection('users');
+                        users.find({"email":email}).toArray(function(err,data){
+                            if(err){
+                                reject(err);
+                            } else {
+                                if(data.length>0){
+                                    reject('Users already exists');
+                                } else {
+                                    resolve();
+                                }
+                            }
+                        });
+                    })
+                    .catch(function(err){
+                        console.log(err);
+                        reject(err);
+                    });
+            });
+        },
     }
 }();
 

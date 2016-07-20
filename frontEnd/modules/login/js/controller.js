@@ -123,16 +123,23 @@ materialAdmin
 		};
 
 	    $scope.submitLogin = function(){
-	    	var sendData = {
-				email: $scope.models.login.email,
-				password: $scope.models.login.password,
-				keep_me_sign_in: $scope.models.login.keep_me_sign_in
-			};
-			loginFactory.doLogin(sendData)
-				.then(function(successData){
-					localStorage.setItem('login','true');
-					$state.go('home.dashboard');
-				});
+	    	resetWarning();
+	    	if(checkForm('login')){
+	    		var sendData = {
+					email: $scope.models.login.email,
+					password: $scope.models.login.password,
+					keep_me_sign_in: $scope.models.login.keep_me_sign_in
+				};
+				loginFactory.doLogin(sendData)
+					.then(function(successData){
+						localStorage.setItem('login','true');
+						$state.go('home.dashboard');
+					})
+					.catch(function(err){
+						$scope.showWarning.status = true;
+			    		$scope.showWarning.text = err.data;
+					});
+	    	}
 	    };
 
 	    $scope.doSignUp = function(){
@@ -141,7 +148,6 @@ materialAdmin
 	    		var sendData = {
 		    		email: $scope.models.login.email,
 					password: $scope.models.login.password,
-					confirmPassword: $scope.models.login.confirmPassword,
 					accept_license_aggrement: $scope.models.login.accept_license_aggrement,
 		    	}
 

@@ -45,5 +45,20 @@ exports.login = function(){
 				// 	});
 			});
 		},
+		doRegister: function(data){
+			db.login.checkUserExists(data.email)
+				.then(function(){
+					db.login.doRegister(data)
+						.then(function(userData){
+							console.log('USERDATA!!!',userData);
+						})
+						.catch(function(err){
+
+						});
+				})
+				.catch(function(err){
+
+				});
+		},
 	}
 }();
