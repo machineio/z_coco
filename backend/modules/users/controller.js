@@ -3,12 +3,12 @@ var db = require('./db.js');
 var gv = require(__dirname + '/../general/config.js');
 var Promise = require('bluebird');
 
-exports.login = function(){
+exports.users = function(){
 	return {
 		doLogin: function(data){
 			return new Promise(function(resolve){
 				console.log('DATA!!!!',data);
-				db.login.doLogin(data.email,data.password,data.keep_me_sign_in)
+				db.users.doLogin(data.email,data.password,data.keep_me_sign_in)
 					.then(function(responseData){
 						var response = {
 							status: true,
@@ -25,31 +25,13 @@ exports.login = function(){
 						};
 						resolve(response);
 					});
-
-				// db.general.checkApiKeyStatus(APIKEY)
-				// 	.then(function(project){
-				// 		db.device.register(project,data,function(err,registerDeviceStatus){
-				// 			var response = {
-				// 				status: true,
-				// 				data: registerDeviceStatus
-				// 			};
-				// 			resolve(response);
-				// 		});
-				// 	})
-				// 	.catch(function(err){
-				// 		var response = {
-				// 			status: false,
-				// 			data: err
-				// 		};
-				// 		resolve(response);
-				// 	});
 			});
 		},
 		doRegister: function(data){
 			return new Promise(function(resolve){
-				db.login.checkUserExists(data.email)
+				db.users.checkUserExists(data.email)
 					.then(function(){
-						db.login.doRegister(data.email,data.password,data.accept_license_aggrement)
+						db.users.doRegister(data.email,data.password,data.accept_license_aggrement)
 							.then(function(userData){
 								delete userData.password;
 								delete userData._id;

@@ -1,8 +1,15 @@
 materialAdmin
 
-    .controller('homeCtrl',['$scope', '$window', '$filter', '$sce', 'ngTableParams', 'tableService', function($scope, $window, $filter, $sce, ngTableParams, tableService){
+    .controller('homeCtrl',['$scope', '$window', '$filter', '$sce', 'ngTableParams', 'tableService', 'mailgunFactory', function($scope, $window, $filter, $sce, ngTableParams, tableService, mailgunFactory){
         $scope.user = JSON.parse(localStorage.getItem('user'));
         console.log('USER',$scope.user);
+
+        mailgunFactory.getDomains()
+            .then(function(domainsData){
+                console.log('DOMAINS', domainsData);
+            });
+
+
         var data = tableService.data;
 
         var ctx = document.getElementById("myChart");

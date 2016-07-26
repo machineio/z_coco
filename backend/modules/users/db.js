@@ -45,8 +45,34 @@ var connectDB = function (dbName) {
     });
 };
 
-exports.login = function(){
+exports.users = function(){
     return {
+        checkApiKeyStatus: function(apikey){
+            return new Promise(function(resolve,reject){
+                connectDB(false)
+                    .then(function(db){
+                        var users = db.collection('users');
+                        users.find({"system_apikey":apikey}).toArray(function(err,usersData){
+                            if(err){
+                                console.log(err);
+                                reject(err);
+                            } else {
+                                if(usersData.length>0){
+                                    db.close();
+                                    resolve(usersData[0]);
+                                } else {
+                                    db.close();
+                                    reject();
+                                }
+                            }
+                        });
+                    })
+                    .catch(function(err){
+                        console.log(err);
+                        reject(err);
+                    });
+            });
+        },
         doLogin: function(email,password,keep_me_sign_in){
             return new Promise(function(resolve,reject){
                 connectDB(false)

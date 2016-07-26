@@ -8,7 +8,8 @@
 var express    	= require('express'); 		// call express
 var app        	= express(); 				// define our app using express
 var bodyParser 	= require('body-parser');
-var login_controller 	= require('./modules/login/controller.js');
+var users_controller 	= require('./modules/users/controller.js');
+var mail_controller    = require('./modules/mailgunModule/controller.js');
 var router      = require('./modules/general/router.js')
 var config		= require('./modules/general/config.js');
 
@@ -29,11 +30,13 @@ var server 	= config.app.http_server.host;		// set server
 // ROUTES FOR API
 // =============================================================================
 var users = express.Router();
+var mailApi = express.Router();
 
 
 // REGISTER OUR ROUTES
 // =============================================================================
 app.use('/users', users);
+app.use('/mail/', mailApi);
 
 
 // middleware to use for all requests
@@ -43,11 +46,16 @@ users.use(function(req, res, next) {
     next();
 });
 
+mailApi.use(function(req, res, next) {
+    console.log(JSON.stringify({ date:new Date(), route:'Mail', method:req.method, url:req.url }));
+    next();
+});
+
 
 // Define the methods
 // =============================================================================
 users.post('/login', function(req,res){
-    login_controller.login.doLogin(req.body)
+    users_controller.users.doLogin(req.body)
         .then(function(response){
             res.json(response);
         });
@@ -55,7 +63,7 @@ users.post('/login', function(req,res){
 });
 
 users.post('/register', function(req,res){
-    login_controller.login.doRegister(req.body)
+    users_controller.users.doRegister(req.body)
         .then(function(response){
             res.json(response);
         });
@@ -63,12 +71,20 @@ users.post('/register', function(req,res){
 });
 
 users.post('/forgotPassword', function(req,res){
-    login_controller.login.doForgotPassword(req.body)
+    users_controller.users.doForgotPassword(req.body)
         .then(function(response){
             res.json(response);
         });
 
 });
+
+
+mailApi.route('/domains')
+
+    .get(function(req,res){
+        var apikey = req.headers.apikey;
+        mail_controller.domains.getDomains(apikey);
+    });
 
 // deviceToken.get('/queue', function(req,res){
 //     controller.push.getQueue()
